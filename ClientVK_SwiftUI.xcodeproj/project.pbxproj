@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0A49CE5E2756888100C4FE73 /* ClientVK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE5D2756888100C4FE73 /* ClientVK_SwiftUIApp.swift */; };
-		0A49CE602756888100C4FE73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE5F2756888100C4FE73 /* ContentView.swift */; };
+		0A49CE602756888100C4FE73 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE5F2756888100C4FE73 /* AuthView.swift */; };
 		0A49CE622756888200C4FE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A49CE612756888200C4FE73 /* Assets.xcassets */; };
 		0A49CE652756888200C4FE73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A49CE642756888200C4FE73 /* Preview Assets.xcassets */; };
+		0A49CE6C27569CBD00C4FE73 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A49CE5A2756888100C4FE73 /* ClientVK_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientVK_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A49CE5D2756888100C4FE73 /* ClientVK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientVK_SwiftUIApp.swift; sourceTree = "<group>"; };
-		0A49CE5F2756888100C4FE73 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0A49CE5F2756888100C4FE73 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		0A49CE612756888200C4FE73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A49CE642756888200C4FE73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +54,10 @@
 			isa = PBXGroup;
 			children = (
 				0A49CE5D2756888100C4FE73 /* ClientVK_SwiftUIApp.swift */,
-				0A49CE5F2756888100C4FE73 /* ContentView.swift */,
+				0A49CE5F2756888100C4FE73 /* AuthView.swift */,
 				0A49CE612756888200C4FE73 /* Assets.xcassets */,
 				0A49CE632756888200C4FE73 /* Preview Content */,
+				0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */,
 			);
 			path = ClientVK_SwiftUI;
 			sourceTree = "<group>";
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A49CE602756888100C4FE73 /* ContentView.swift in Sources */,
+				0A49CE602756888100C4FE73 /* AuthView.swift in Sources */,
 				0A49CE5E2756888100C4FE73 /* ClientVK_SwiftUIApp.swift in Sources */,
+				0A49CE6C27569CBD00C4FE73 /* Color+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
