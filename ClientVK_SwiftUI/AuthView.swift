@@ -26,17 +26,14 @@ struct AuthView: View {
     
     var body: some View {
         ZStack {
-            GeometryReader { _ in
-                
-            }.background(
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color.gradientStart,
-                        Color.gradientEnd,
-                    ]),
-                    startPoint: UnitPoint(x: 0, y: 0),
-                    endPoint: UnitPoint(x: 1, y: 1)))
-                .edgesIgnoringSafeArea(.all)
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.gradientStart,
+                    Color.gradientEnd,
+                ]),
+                startPoint: UnitPoint(x: 0, y: 0),
+                endPoint: UnitPoint(x: 1, y: 1))
+                .ignoresSafeArea()
             
             ScrollView(showsIndicators: false) {
                 VStack {
@@ -61,9 +58,10 @@ struct AuthView: View {
                                 .frame(maxWidth: 150)
                             
                         }
-                    }.frame(maxWidth: 250)
-                        .padding(.top, 20)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    .frame(maxWidth: 250)
+                    .padding(.top, 20)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     Spacer(minLength: 25)
                     
@@ -71,13 +69,15 @@ struct AuthView: View {
                         HStack {
                             Image(systemName: "chevron.right.circle")
                             Text("Sign in")
-                        }.font(.body)
-                    }.frame(maxHeight: 15)
-                        .padding()
-                        .background(Color.buttonColor)
-                        .foregroundColor(Color.buttonTextColor)
-                        .cornerRadius(40)
-                        .disabled(login.isEmpty || password.isEmpty)
+                        }
+                        .font(.body)
+                    }
+                    .frame(maxHeight: 15)
+                    .padding()
+                    .background(Color.buttonColor)
+                    .foregroundColor(Color.buttonTextColor)
+                    .cornerRadius(40)
+                    .disabled(login.isEmpty || password.isEmpty)
                 }
             }
             .onReceive(keyboardIsOnPublisher) { isKeyboardOn in
@@ -85,7 +85,8 @@ struct AuthView: View {
                     self.shouldShowLogo = !isKeyboardOn
                 }
             }
-        }.onTapGesture {
+        }
+        .onTapGesture {
             UIApplication.shared.endEditing()
         }
     }
