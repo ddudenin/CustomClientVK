@@ -12,6 +12,10 @@
 		0A49CE622756888200C4FE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A49CE612756888200C4FE73 /* Assets.xcassets */; };
 		0A49CE652756888200C4FE73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A49CE642756888200C4FE73 /* Preview Assets.xcassets */; };
 		0A49CE6C27569CBD00C4FE73 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */; };
+		0A49CE6E2756A44100C4FE73 /* ImageViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE6D2756A44100C4FE73 /* ImageViewBuilder.swift */; };
+		0A49CE702756A4A100C4FE73 /* GroupCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE6F2756A4A100C4FE73 /* GroupCellView.swift */; };
+		0A49CE722756A55900C4FE73 /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE712756A55900C4FE73 /* UserCellView.swift */; };
+		0A49CE762756A63D00C4FE73 /* ShadowViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE752756A63D00C4FE73 /* ShadowViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		0A49CE612756888200C4FE73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A49CE642756888200C4FE73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		0A49CE6D2756A44100C4FE73 /* ImageViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewBuilder.swift; sourceTree = "<group>"; };
+		0A49CE6F2756A4A100C4FE73 /* GroupCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCellView.swift; sourceTree = "<group>"; };
+		0A49CE712756A55900C4FE73 /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
+		0A49CE752756A63D00C4FE73 /* ShadowViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +61,15 @@
 		0A49CE5C2756888100C4FE73 /* ClientVK_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				0A49CE742756A61A00C4FE73 /* ViewBuilders */,
+				0A49CE732756A60300C4FE73 /* ViewModifiers */,
 				0A49CE5D2756888100C4FE73 /* ClientVK_SwiftUIApp.swift */,
 				0A49CE5F2756888100C4FE73 /* AuthView.swift */,
 				0A49CE612756888200C4FE73 /* Assets.xcassets */,
 				0A49CE632756888200C4FE73 /* Preview Content */,
 				0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */,
+				0A49CE6F2756A4A100C4FE73 /* GroupCellView.swift */,
+				0A49CE712756A55900C4FE73 /* UserCellView.swift */,
 			);
 			path = ClientVK_SwiftUI;
 			sourceTree = "<group>";
@@ -68,6 +80,22 @@
 				0A49CE642756888200C4FE73 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0A49CE732756A60300C4FE73 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				0A49CE752756A63D00C4FE73 /* ShadowViewModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		0A49CE742756A61A00C4FE73 /* ViewBuilders */ = {
+			isa = PBXGroup;
+			children = (
+				0A49CE6D2756A44100C4FE73 /* ImageViewBuilder.swift */,
+			);
+			path = ViewBuilders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +169,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A49CE602756888100C4FE73 /* AuthView.swift in Sources */,
+				0A49CE722756A55900C4FE73 /* UserCellView.swift in Sources */,
 				0A49CE5E2756888100C4FE73 /* ClientVK_SwiftUIApp.swift in Sources */,
+				0A49CE762756A63D00C4FE73 /* ShadowViewModifier.swift in Sources */,
+				0A49CE6E2756A44100C4FE73 /* ImageViewBuilder.swift in Sources */,
 				0A49CE6C27569CBD00C4FE73 /* Color+Ext.swift in Sources */,
+				0A49CE702756A4A100C4FE73 /* GroupCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
