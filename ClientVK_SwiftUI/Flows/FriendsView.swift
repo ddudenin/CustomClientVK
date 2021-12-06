@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FriendsView: View {
+    
     @State private var users: [User] = [
         User(lastName: "Cook",
              firstName: "Tim",
@@ -102,9 +103,9 @@ struct FriendsView: View {
     ]
     
     var body: some View {
-        List(arrayLetter(), rowContent: { section in
+        List(prepareSectionsData(), rowContent: { section in
             Section(header: Text("\(section.letter)")) {
-                ForEach(arrayByLetter(section.letter)) { user in
+                ForEach(getUsersArray(section: section.letter)) { user in
                     NavigationLink(destination: UserPhotosView(user: user)) {
                         UserCellView(user: user)
                     }
@@ -114,12 +115,11 @@ struct FriendsView: View {
             .listStyle(.plain)
     }
     
-    private func arrayLetter() -> [SectionDataModel] {
+    private func prepareSectionsData() -> [SectionDataModel] {
         var resultArray = [SectionDataModel]()
         
         for user in users {
-            let nameLetter = String(user.lastName.prefix(1))
-            let letterModel = SectionDataModel(letter: nameLetter)
+            let letterModel = SectionDataModel(letter: String(user.lastName.prefix(1)))
             if !resultArray.contains(letterModel) {
                 resultArray.append(letterModel)
             }
@@ -130,14 +130,11 @@ struct FriendsView: View {
         return resultArray
     }
     
-    private func arrayByLetter(_ letter: String) -> [User] {
+    private func getUsersArray(section letter: String) -> [User] {
         var resultArray = [User]()
         
-        for user in users {
-            let nameLetter = String(user.lastName.prefix(1))
-            if nameLetter == letter {
-                resultArray.append(user)
-            }
+        for user in users where String(user.lastName.prefix(1)) == letter {
+            resultArray.append(user)
         }
         
         return resultArray

@@ -8,6 +8,7 @@
 import Foundation
 
 class Group: Identifiable {
+    
     let id: UUID = UUID()
     let name: String
     let avatar: String?

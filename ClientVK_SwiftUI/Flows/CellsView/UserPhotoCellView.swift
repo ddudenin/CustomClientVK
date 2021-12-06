@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserPhotoCellView: View {
+    
     let photo: Photo
     
     var body: some View {
@@ -19,7 +20,7 @@ struct UserPhotoCellView: View {
             
             HStack {
                 Button(action: { print("press button") }) {
-                    Image(systemName: "\(self.photo.userLikes ? "heart.fill" : "heart")")
+                    Image(systemName: self.photo.userLikes ? "heart.fill" : "heart")
                 }
                 
                 Text("\(self.photo.likesCount)")

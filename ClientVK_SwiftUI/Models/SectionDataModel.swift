@@ -8,6 +8,7 @@
 import Foundation
 
 struct SectionDataModel: Identifiable {
+    
     var id: String {
         return letter
     }

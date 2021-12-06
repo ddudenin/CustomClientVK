@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct AuthView: View {
+    
     @State private var login = ""
     @State private var password = ""
     @State private var shouldShowLogo: Bool = true
@@ -92,7 +93,9 @@ struct AuthView: View {
             UIApplication.shared.endEditing()
         }
         .alert(isPresented: $showIncorrectCredentialsWarning, content: {
-            Alert(title: Text("Ошибка"), message: Text("Введены неверные данные пользователя"), dismissButton: .cancel())
+            Alert(title: Text("Ошибка"),
+                  message: Text("Введены неверные данные пользователя"),
+                  dismissButton: .cancel())
         })
     }
     
@@ -101,9 +104,8 @@ struct AuthView: View {
             isUserSignedIn = true
         } else {
             showIncorrectCredentialsWarning = true
+            password = ""
         }
-        
-        password = ""
     }
 }
 

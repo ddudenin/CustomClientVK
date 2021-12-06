@@ -11,6 +11,7 @@ import SwiftUI
 import ASCollectionView
 
 struct UserPhotosView: View {
+    
     let user: User
     
     @State private var photos: [Photo] =
@@ -29,7 +30,7 @@ struct UserPhotosView: View {
                 lineSpacing: 16
             )
         }
-        .navigationTitle(self.user.getFullName())
+        .navigationTitle(self.user.fullName)
     }
 }
 

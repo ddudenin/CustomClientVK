@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GroupsView: View {
+    
     @State private var groups: [Group] = [
         testGroup,
         Group(name: "Полное прекращение работы Telegram в России", avatar: nil),

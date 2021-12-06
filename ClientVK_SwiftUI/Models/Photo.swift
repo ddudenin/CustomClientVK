@@ -8,6 +8,7 @@
 import Foundation
 
 class Photo: Identifiable {
+    
     let id: UUID = UUID()
     let url: String
     let likesCount: Int

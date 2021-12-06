@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State private var shouldShowMainView: Bool = false
     
     var body: some View {

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GroupCellView: View {
+    
     let group: Group
     
     var body: some View {

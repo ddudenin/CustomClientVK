@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct UserCellView: View {
+    
     let user: User
     
     var body: some View {
         HStack {
-            let color = self.user.isOnline ? Color.green : Color.black
-            CellImage(color: color) {
+            CellImage(color: self.user.isOnline ? Color.green : Color.black) {
                 Image(self.user.avatar ?? "person.fill")
             }
             
-            VStack (alignment: .leading){
-                Text(self.user.getFullName())
+            VStack (alignment: .leading) {
+                Text(self.user.fullName)
                 Text(self.user.city ?? "")
                     .font(.footnote)
                     .fontWeight(.thin)

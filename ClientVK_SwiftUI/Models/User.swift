@@ -8,6 +8,7 @@
 import Foundation
 
 class User: Identifiable {
+    
     let id: UUID = UUID()
     let lastName: String
     let firstName: String
@@ -15,15 +16,15 @@ class User: Identifiable {
     let city: String?
     let isOnline: Bool
     
+    var fullName: String {
+        return "\(self.firstName) \(self.lastName)"
+    }
+    
     init(lastName: String, firstName: String, avatar: String?, city: String?, isOnline: Bool) {
         self.lastName = lastName
         self.firstName = firstName
         self.avatar = avatar
         self.city = city
         self.isOnline = isOnline
-    }
-    
-    func getFullName() -> String {
-        return "\(self.firstName) \(self.lastName)"
     }
 }
