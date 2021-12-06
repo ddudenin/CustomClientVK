@@ -12,6 +12,8 @@ struct AuthView: View {
     @State private var login = ""
     @State private var password = ""
     @State private var shouldShowLogo: Bool = true
+    @State private var showIncorrectCredentialsWarning: Bool = false
+    @Binding var isUserSignedIn: Bool
     
     private let keyboardIsOnPublisher = Publishers.Merge(
         NotificationCenter
@@ -65,7 +67,7 @@ struct AuthView: View {
                     
                     Spacer(minLength: 25)
                     
-                    Button(action: { print("Sign in func") }) {
+                    Button(action: verifySignInData ) {
                         HStack {
                             Image(systemName: "chevron.right.circle")
                             Text("Sign in")
@@ -89,6 +91,19 @@ struct AuthView: View {
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
+        .alert(isPresented: $showIncorrectCredentialsWarning, content: {
+            Alert(title: Text("Ошибка"), message: Text("Введены неверные данные пользователя"), dismissButton: .cancel())
+        })
+    }
+    
+    private func verifySignInData() {
+        if login == "1" && password == "1" {
+            isUserSignedIn = true
+        } else {
+            showIncorrectCredentialsWarning = true
+        }
+        
+        password = ""
     }
 }
 
@@ -98,9 +113,9 @@ extension UIApplication {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        AuthView(isUserSignedIn: .constant(false))
             .previewInterfaceOrientation(.portraitUpsideDown)
     }
 }

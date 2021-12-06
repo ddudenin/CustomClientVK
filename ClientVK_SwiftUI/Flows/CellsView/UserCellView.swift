@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct UserCellView: View {
+    let user: User
+    
     var body: some View {
         HStack {
-            CellImage {
-                Image("person.fill")
+            let color = self.user.isOnline ? Color.green : Color.black
+            CellImage(color: color) {
+                Image(self.user.avatar ?? "person.fill")
             }
             
             VStack (alignment: .leading){
-                Text("User name")
-                Text("Status")
+                Text(self.user.getFullName())
+                Text(self.user.city ?? "")
                     .font(.footnote)
                     .fontWeight(.thin)
             }
             .lineLimit(1)
-
+            
             Spacer()
         }
     }
@@ -29,6 +32,6 @@ struct UserCellView: View {
 
 struct UserCellView_Previews: PreviewProvider {
     static var previews: some View {
-        UserCellView()
+        UserCellView(user: testUser)
     }
 }
