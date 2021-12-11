@@ -17,7 +17,7 @@ struct GroupsResponse: Codable {
     let items: [RLMGroup]
 }
 
-class RLMGroup: Object, Codable {
+class RLMGroup: Object, Codable, Identifiable {
     @objc dynamic var id: Int = -1
     @objc dynamic var name: String = ""
     @objc dynamic var screenName: String = ""

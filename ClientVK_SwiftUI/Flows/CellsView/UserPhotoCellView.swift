@@ -6,24 +6,27 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UserPhotoCellView: View {
     
-    let photo: Photo
+    let photo: RLMPhoto
     
     var body: some View {
         VStack {
-            Image(self.photo.url)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 90, height: 90)
+            if let url = self.photo.sizes.last?.url {
+                KFImage(URL(string: url))
+                    .cancelOnDisappear(true)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }
             
             HStack {
                 Button(action: { print("press button") }) {
-                    Image(systemName: self.photo.userLikes ? "heart.fill" : "heart")
+                    Image(systemName: self.photo.likes?.userLikes == 1 ? "heart.fill" : "heart")
                 }
                 
-                Text("\(self.photo.likesCount)")
+                Text("\(self.photo.likes?.count ?? 0)")
             }
             .lineLimit(1)
         }
@@ -33,6 +36,6 @@ struct UserPhotoCellView: View {
 
 struct UserPhotoCellView_Previews: PreviewProvider {
     static var previews: some View {
-        UserPhotoCellView(photo: Photo(url: "TimCook", likesCount: 213, userLikes: true))
+        UserPhotoCellView(photo: RLMPhoto())
     }
 }

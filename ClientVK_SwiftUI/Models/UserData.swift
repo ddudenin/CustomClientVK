@@ -17,13 +17,13 @@ struct FriendsResponse: Codable {
     let items: [RLMUser]
 }
 
-class RLMUser: Object, Codable {
+class RLMUser: Object, Codable, Identifiable {
     @objc dynamic var firstName: String = ""
     @objc dynamic var id: Int = -1
     @objc dynamic var lastName: String = ""
-    @objc dynamic var canAccessClosed: Bool = false
     @objc dynamic var photo200Orig: String = ""
-    @objc dynamic var trackCode: String = ""
+    @objc dynamic var city: City? = nil
+    @objc dynamic var online: Int = 0
     
     var fullName: String  {
         return firstName + " " + lastName
@@ -34,3 +34,11 @@ class RLMUser: Object, Codable {
     }
 }
 
+class City: Object, Codable {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var title: String = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}

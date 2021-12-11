@@ -9,18 +9,17 @@ import SwiftUI
 
 struct GroupsView: View {
     
-    @State private var groups: [Group] = [
-        testGroup,
-        Group(name: "Полное прекращение работы Telegram в России", avatar: nil),
-        Group(name: "Дворец Путина", avatar: "number.square.fill"),
-        Group(name: "Соловьев. Live", avatar: "mic.slash.circle"),
-    ]
+    @ObservedObject var viewModel = GroupsViewModel(realmService: RealmService(), vkService: VKService())
     
     var body: some View {
-        List(groups.sorted(by: { $0.name < $1.name}), rowContent: { group in
+        List(viewModel.detachedGroups) { group in
             GroupCellView(group: group)
-        })
-            .listStyle(.plain)
+        }
+        .onAppear {
+            viewModel.fetchGroups()
+        }
+        .navigationTitle("Группы")
+        .listStyle(.plain)
     }
 }
 

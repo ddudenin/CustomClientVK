@@ -7,28 +7,25 @@
 
 import Foundation
 
-protocol AnyNetworkService {
-
+protocol AnyVKService {
+    func getFriends(complition: @escaping ([RLMUser]) -> ())
+    func getPhotos(userId: Int, complition: @escaping ([RLMPhoto]) -> ())
+    func getGroups(complition: @escaping ([RLMGroup]) -> ())
 }
 
-class NetworkManager {
-    static let instance = NetworkManager()
-    
+class VKService: AnyVKService {
+
     lazy var decoder: JSONDecoder = {
         var decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
-    
-    private init() {
-        
-    }
-    
+
     private var token: String {
         UserDefaults.standard.string(forKey: "vkToken") ?? ""
     }
     
-    func loadFriends(complition: @escaping ([RLMUser]) -> ()) {
+    func getFriends(complition: @escaping ([RLMUser]) -> ()) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -36,7 +33,7 @@ class NetworkManager {
         urlComponents.queryItems = [
             URLQueryItem(name: "access_token", value: token),
             URLQueryItem(name: "order", value: "hints"),
-            URLQueryItem(name: "fields", value: "name, photo_200_orig"),
+            URLQueryItem(name: "fields", value: "name, photo_200_orig, city, online"),
             URLQueryItem(name: "v", value: "5.130")
         ]
         
@@ -62,41 +59,7 @@ class NetworkManager {
         dataTask.resume()
     }
     
-    func friendsForecast(complition: @escaping ([RLMUser]) -> ()) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/friends.get"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: token),
-            URLQueryItem(name: "order", value: "hints"),
-            URLQueryItem(name: "fields", value: "name, photo_200_orig"),
-            URLQueryItem(name: "v", value: "5.130")
-        ]
-        
-        guard let url = urlComponents.url else { return }
-        
-        let session = URLSession.shared
-        
-        let dataTask = session.dataTask(with: url) { (data, response, error) in
-            if let data = data {
-                do {
-                    let friends = try self.decoder
-                        .decode(FriendsRequestData.self, from: data)
-                        .response.items
-                    complition(friends)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-        
-        dataTask.resume()
-    }
-    
-    func loadPhotos(userId: Int, complition: @escaping ([RLMPhoto]) -> ()) {
+    func getPhotos(userId: Int, complition: @escaping ([RLMPhoto]) -> ()) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -168,7 +131,7 @@ class NetworkManager {
         
     }
     
-    func loadGroups(complition: @escaping (Data?) -> ()) {
+    func getGroups(complition: @escaping ([RLMGroup]) -> ()) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -184,11 +147,18 @@ class NetworkManager {
         let session = URLSession.shared
         
         let dataTask = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
+            if let data = data {
+                do {
+                    let groups = try self.decoder
+                        .decode(GroupsRequestData.self, from: data)
+                        .response.items
+                    complition(groups)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            } else if let error = error {
                 print(error.localizedDescription)
             }
-            
-            complition(data)
         }
         
         dataTask.resume()

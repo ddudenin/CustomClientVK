@@ -17,7 +17,7 @@ struct PhotosResponse: Codable {
     let items: [RLMPhoto]
 }
 
-class RLMPhoto: Object, Codable {
+class RLMPhoto: Object, Codable, Identifiable {
     @objc dynamic var albumId: Int = -1
     @objc dynamic var date: Int = 0
     @objc dynamic var id: Int = -1

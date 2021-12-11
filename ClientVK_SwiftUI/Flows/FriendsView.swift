@@ -9,116 +9,36 @@ import SwiftUI
 
 struct FriendsView: View {
     
-    @State private var users: [User] = [
-        User(lastName: "Cook",
-             firstName: "Tim",
-             avatar: "TimCook",
-             city: "Mobile",
-             isOnline: Bool.random()),
-        User(lastName: "Adams",
-             firstName: "Katherine",
-             avatar: "KatherineAdams",
-             city: "New York",
-             isOnline: Bool.random()),
-        User(lastName: "Cue",
-             firstName: "Eddy",
-             avatar: "EddyCue",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Federighi",
-             firstName: "Craig",
-             avatar: "CraigFederighi",
-             city: "Miami",
-             isOnline: Bool.random()),
-        User(lastName: "Giannandrea",
-             firstName: "John",
-             avatar: "JohnGiannandrea",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Joswiak",
-             firstName: "Greg",
-             avatar: "GregJoswiak",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Khan",
-             firstName: "Sabih",
-             avatar: "SabihKhan",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Maestri",
-             firstName: "Luca",
-             avatar: "LucaMaestri",
-             city: "Rome",
-             isOnline: Bool.random()),
-        User(lastName: "O'Brien",
-             firstName: "Deirdre",
-             avatar: "DeirdreOBrien",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Srouji",
-             firstName: "Johny",
-             avatar: "JohnySrouji",
-             city: "Haifa",
-             isOnline: Bool.random()),
-        User(lastName: "Ternus",
-             firstName: "John",
-             avatar: "JohnTernus",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Williams",
-             firstName: "Jeff",
-             avatar: "JeffWilliams",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Jackson",
-             firstName: "Lisa",
-             avatar: "LisaJackson",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Low",
-             firstName: "Stella",
-             avatar: "StellaLow",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Ge Mahe",
-             firstName: "Isabel",
-             avatar: "IsabelGeMahe",
-             city: "Shenyang",
-             isOnline: Bool.random()),
-        User(lastName: "Myhren",
-             firstName: "Tor",
-             avatar: "TorMyhren",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Perica",
-             firstName: "Adrian",
-             avatar: "AdrianPerica",
-             city: nil,
-             isOnline: Bool.random()),
-        User(lastName: "Schiller",
-             firstName: "Phil",
-             avatar: "PhilSchiller",
-             city: "Boston",
-             isOnline: Bool.random()),
-    ]
+    @ObservedObject var viewModel = FriendsViewModel(realmService: RealmService(), vkService: VKService())
     
     var body: some View {
-        List(prepareSectionsData(), rowContent: { section in
-            Section(header: Text("\(section.letter)")) {
-                ForEach(getUsersArray(section: section.letter)) { user in
-                    NavigationLink(destination: UserPhotosView(user: user)) {
-                        UserCellView(user: user)
+        NavigationView {
+            if let error = viewModel.error {
+                Text(error.localizedDescription)
+            } else {
+                List(prepareSectionsData(), rowContent: { section in
+                    Section(header: Text("\(section.letter)")) {
+                        ForEach(getUsersArray(section: section.letter)) { user in
+                            NavigationLink(destination: UserPhotosView(user: user)) {
+                                UserCellView(user: user)
+                            }
+                        }
                     }
-                }
+                })
+                    .listStyle(.plain)
+                    .onAppear {
+                        viewModel.fetchFriends()
+                    }
+                    .navigationTitle("Друзья")
             }
-        })
-            .listStyle(.plain)
+        }
+        .navigationViewStyle(.stack)
     }
     
     private func prepareSectionsData() -> [SectionDataModel] {
         var resultArray = [SectionDataModel]()
         
-        for user in users {
+        for user in viewModel.detachedFriends {
             let letterModel = SectionDataModel(letter: String(user.lastName.prefix(1)))
             if !resultArray.contains(letterModel) {
                 resultArray.append(letterModel)
@@ -130,10 +50,10 @@ struct FriendsView: View {
         return resultArray
     }
     
-    private func getUsersArray(section letter: String) -> [User] {
-        var resultArray = [User]()
+    private func getUsersArray(section letter: String) -> [RLMUser] {
+        var resultArray = [RLMUser]()
         
-        for user in users where String(user.lastName.prefix(1)) == letter {
+        for user in viewModel.detachedFriends where String(user.lastName.prefix(1)) == letter {
             resultArray.append(user)
         }
         

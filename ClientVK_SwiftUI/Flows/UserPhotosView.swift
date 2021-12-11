@@ -12,30 +12,33 @@ import ASCollectionView
 
 struct UserPhotosView: View {
     
-    let user: User
-    
-    @State private var photos: [Photo] =
-    Array(repeating: Photo(url: "Tim Cook",
-                           likesCount: Int.random(in: 1...1000),
-                           userLikes: Bool.random()),
-          count: Int.random(in: 1...10))
+    @ObservedObject var viewModel = UserPhotoViewModel(vkService: VKService())
+    let user: RLMUser
     
     var body: some View {
-        ASCollectionView(data: photos) { photo, _ in
+        ASCollectionView(data: viewModel.photos) { photo, _ in
             UserPhotoCellView(photo: photo)
-        }.layout {
-            .grid(
-                layoutMode: .fixedNumberOfColumns(3),
-                itemSpacing: 0,
-                lineSpacing: 16
-            )
+        }
+        .layout {
+            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            let width = UIScreen.main.bounds.width / 2
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            layout.itemSize = CGSize(width: width, height: width)
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
+            layout.scrollDirection = .vertical
+            return layout
+        }
+        .onAppear {
+            viewModel.fetchPhotos(for: user)
         }
         .navigationTitle(self.user.fullName)
+        .listStyle(.plain)
     }
 }
 
 struct UserPhotosView_Previews: PreviewProvider {
     static var previews: some View {
-        UserPhotosView(user: testUser)
+        UserPhotosView(user: RLMUser())
     }
 }
