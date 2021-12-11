@@ -15,7 +15,7 @@ struct UserCellView: View {
     var body: some View {
         HStack {
             CellImage(color: self.user.online == 1 ? Color.green : Color.black) {
-                KFImage(URL(string: self.user.photo200Orig))
+                KFImage(URL(string: self.user.avatarURL))
                     .cancelOnDisappear(true)
                     .resizable()
             }

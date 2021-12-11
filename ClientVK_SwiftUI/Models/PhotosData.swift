@@ -29,6 +29,10 @@ class RLMPhoto: Object, Codable, Identifiable {
     @objc dynamic var likes: Likes?
     @objc dynamic var reposts: Reposts?
     
+    var url: String? {
+        return sizes.first { $0.type == "x" }?.url ?? sizes.last?.url
+    }
+    
     override static func primaryKey() -> String? {
         return "id"
     }

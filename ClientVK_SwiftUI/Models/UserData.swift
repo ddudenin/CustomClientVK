@@ -29,6 +29,10 @@ class RLMUser: Object, Codable, Identifiable {
         return firstName + " " + lastName
     }
     
+    var avatarURL: String {
+        return photo200Orig
+    }
+    
     override static func primaryKey() -> String? {
         return "id"
     }

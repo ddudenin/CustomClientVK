@@ -163,38 +163,4 @@ class VKService: AnyVKService {
         
         dataTask.resume()
     }
-    
-    func loadGroups(searchText: String, complition: @escaping ([RLMGroup]) -> ()) {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/groups.search"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: token),
-            URLQueryItem(name: "q", value: searchText),
-            URLQueryItem(name: "count", value: "5"),
-            URLQueryItem(name: "v", value: "5.130")
-        ]
-        
-        guard let url = urlComponents.url else { return }
-        
-        let session = URLSession.shared
-        
-        let dataTask = session.dataTask(with: url) { (data, response, error) in
-            if let data = data {
-                do {
-                    let groups = try self.decoder
-                        .decode(GroupsRequestData.self, from: data)
-                        .response.items
-                    complition(groups)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-        
-        dataTask.resume()
-    }
 }

@@ -20,7 +20,7 @@ struct GroupCellView: View {
                     .resizable()
             }
             
-            Text(group.name)
+            Text(group.title)
             
             Spacer()
         }

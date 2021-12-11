@@ -14,11 +14,11 @@ struct UserPhotoCellView: View {
     
     var body: some View {
         VStack {
-            if let url = self.photo.sizes.last?.url {
+            if let url = self.photo.url {
                 KFImage(URL(string: url))
                     .cancelOnDisappear(true)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 90, height: 90)
             }
             
             HStack {
