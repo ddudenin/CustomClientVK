@@ -11,6 +11,7 @@ import Kingfisher
 struct UserPhotoCellView: View {
     
     let photo: RLMPhoto
+    @State private var isLiked = false
     
     var body: some View {
         VStack {
@@ -22,15 +23,45 @@ struct UserPhotoCellView: View {
             }
             
             HStack {
-                Button(action: { print("press button") }) {
-                    Image(systemName: self.photo.likes?.userLikes == 1 ? "heart.fill" : "heart")
-                }
-                
+                HeartButton(isLiked: $isLiked)
                 Text("\(self.photo.likes?.count ?? 0)")
             }
             .lineLimit(1)
         }
         .frame(width: 100, height: 125)
+    }
+}
+
+struct HeartButton: View {
+    
+    @Binding var isLiked: Bool
+    @State private var animate = false
+
+    private let animationDuration = 0.1
+    private var animationScale: CGFloat {
+        isLiked ? 0.7 : 1.3
+    }
+    
+    var body: some View {
+        Button(action: {
+            self.animate = true
+            
+            DispatchQueue
+                .main
+                .asyncAfter(deadline: .now() + self.animationDuration,
+                            execute: {
+                    self.animate = false
+                    self.isLiked.toggle()
+                })
+        }, label: {
+            Image(systemName: self.isLiked ? "heart.fill" : "heart")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 20)
+                .foregroundColor(self.isLiked ? .red : .gray)
+        })
+            .scaleEffect(self.animate ? animationScale : 1.0)
+            .animation(.easeIn(duration: animationDuration), value: self.isLiked)
     }
 }
 

@@ -63,7 +63,7 @@ struct CellImage: View {
     }
     
     private func isTooFar(_ translation: CGSize) -> Bool {
-        let distance = sqrt(pow(translation.width, 2) + pow(translation.height, 2))
-        return distance >= 15.0
+        let distance = pow(translation.width, 2) + pow(translation.height, 2)
+        return distance >= 255.0
     }
 }
