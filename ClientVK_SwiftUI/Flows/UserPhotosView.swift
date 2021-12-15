@@ -17,7 +17,7 @@ struct UserPhotosView: View {
     
     var body: some View {
         ASCollectionView(data: viewModel.photos) { photo, _ in
-            UserPhotoCellView(photo: photo)
+            UserPhotoCellView(photo: photo, isLiked: photo.likes?.userLikes == 1)
         }
         .layout {
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()

@@ -11,7 +11,21 @@ import Kingfisher
 struct UserPhotoCellView: View {
     
     let photo: RLMPhoto
-    @State private var isLiked = false
+    @State var isLiked: Bool
+    
+    private var likesCount: Int {
+        var likeCount = 0
+        
+        if let likeInfo = photo.likes {
+            likeCount = likeInfo.count
+        }
+        
+        if isLiked {
+            likeCount += 1
+        }
+        
+        return likeCount
+    }
     
     var body: some View {
         VStack {
@@ -23,8 +37,8 @@ struct UserPhotoCellView: View {
             }
             
             HStack {
-                HeartButton(isLiked: $isLiked)
-                Text("\(self.photo.likes?.count ?? 0)")
+                LikeButton(isLiked: $isLiked)
+                Text("\(likesCount)")
             }
             .lineLimit(1)
         }
@@ -32,41 +46,8 @@ struct UserPhotoCellView: View {
     }
 }
 
-struct HeartButton: View {
-    
-    @Binding var isLiked: Bool
-    @State private var animate = false
-
-    private let animationDuration = 0.1
-    private var animationScale: CGFloat {
-        isLiked ? 0.7 : 1.3
-    }
-    
-    var body: some View {
-        Button(action: {
-            self.animate = true
-            
-            DispatchQueue
-                .main
-                .asyncAfter(deadline: .now() + self.animationDuration,
-                            execute: {
-                    self.animate = false
-                    self.isLiked.toggle()
-                })
-        }, label: {
-            Image(systemName: self.isLiked ? "heart.fill" : "heart")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 20)
-                .foregroundColor(self.isLiked ? .red : .gray)
-        })
-            .scaleEffect(self.animate ? animationScale : 1.0)
-            .animation(.easeIn(duration: animationDuration), value: self.isLiked)
-    }
-}
-
 struct UserPhotoCellView_Previews: PreviewProvider {
     static var previews: some View {
-        UserPhotoCellView(photo: RLMPhoto())
+        UserPhotoCellView(photo: RLMPhoto(), isLiked: false)
     }
 }
