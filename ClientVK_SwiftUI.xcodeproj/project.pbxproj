@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A49CE5E2756888100C4FE73 /* ClientVK_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE5D2756888100C4FE73 /* ClientVK_SwiftUIApp.swift */; };
-		0A49CE602756888100C4FE73 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE5F2756888100C4FE73 /* AuthView.swift */; };
+		0A31C85F276E4C9800033A96 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31C85E276E4C9800033A96 /* MainCoordinator.swift */; };
+		0A31C861276E4EEA00033A96 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31C860276E4EEA00033A96 /* MainTabBarView.swift */; };
+		0A375B5A276E879400CBC3C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A375B59276E879400CBC3C3 /* SceneDelegate.swift */; };
+		0A375B5C276E87BE00CBC3C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A375B5B276E87BE00CBC3C3 /* AppDelegate.swift */; };
 		0A49CE622756888200C4FE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A49CE612756888200C4FE73 /* Assets.xcassets */; };
 		0A49CE652756888200C4FE73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A49CE642756888200C4FE73 /* Preview Assets.xcassets */; };
 		0A49CE6C27569CBD00C4FE73 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */; };
@@ -33,9 +35,8 @@
 		0A6C326C2763EEDC005B9379 /* KeychainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C326B2763EEDC005B9379 /* KeychainUser.swift */; };
 		0A6C3270276401DB005B9379 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 0A6C326F276401DB005B9379 /* SwiftKeychainWrapper */; };
 		0A6C327227640234005B9379 /* Encode+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C327127640234005B9379 /* Encode+Decode.swift */; };
-		0A6C3274276402B8005B9379 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C3273276402B8005B9379 /* ContentViewModel.swift */; };
+		0A6C3274276402B8005B9379 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C3273276402B8005B9379 /* LoginViewModel.swift */; };
 		0ADC930B275CBA32001797C3 /* SectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC930A275CBA32001797C3 /* SectionDataModel.swift */; };
-		0ADC930F275CBB03001797C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC930E275CBB03001797C3 /* ContentView.swift */; };
 		0ADC9311275CBD62001797C3 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC9310275CBD62001797C3 /* FriendsView.swift */; };
 		0ADC9313275CBE93001797C3 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC9312275CBE93001797C3 /* GroupsView.swift */; };
 		0ADC9315275CBF52001797C3 /* UserPhotoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC9314275CBF52001797C3 /* UserPhotoCellView.swift */; };
@@ -46,9 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A31C85E276E4C9800033A96 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		0A31C860276E4EEA00033A96 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		0A375B59276E879400CBC3C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0A375B5B276E87BE00CBC3C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0A375B5F276E89E400CBC3C3 /* ClientVK-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ClientVK-SwiftUI-Info.plist"; path = "ClientVK_SwiftUI/ClientVK-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0A49CE5A2756888100C4FE73 /* ClientVK_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientVK_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A49CE5D2756888100C4FE73 /* ClientVK_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientVK_SwiftUIApp.swift; sourceTree = "<group>"; };
-		0A49CE5F2756888100C4FE73 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		0A49CE612756888200C4FE73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A49CE642756888200C4FE73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A49CE6B27569CBD00C4FE73 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
@@ -69,9 +73,8 @@
 		0A6C32692763EE61005B9379 /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
 		0A6C326B2763EEDC005B9379 /* KeychainUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUser.swift; sourceTree = "<group>"; };
 		0A6C327127640234005B9379 /* Encode+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encode+Decode.swift"; sourceTree = "<group>"; };
-		0A6C3273276402B8005B9379 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		0A6C3273276402B8005B9379 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0ADC930A275CBA32001797C3 /* SectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataModel.swift; sourceTree = "<group>"; };
-		0ADC930E275CBB03001797C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0ADC9310275CBD62001797C3 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		0ADC9312275CBE93001797C3 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		0ADC9314275CBF52001797C3 /* UserPhotoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoCellView.swift; sourceTree = "<group>"; };
@@ -96,6 +99,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A31C85D276E4C6800033A96 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0A31C85E276E4C9800033A96 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0A375B58276E877900CBC3C3 /* UIKIt */ = {
+			isa = PBXGroup;
+			children = (
+				0A375B59276E879400CBC3C3 /* SceneDelegate.swift */,
+				0A375B5B276E87BE00CBC3C3 /* AppDelegate.swift */,
+			);
+			path = UIKIt;
+			sourceTree = "<group>";
+		};
+		0A375B60276E8C9300CBC3C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A49CE612756888200C4FE73 /* Assets.xcassets */,
+				0A49CE632756888200C4FE73 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0A375B61276E8CC800CBC3C3 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
 		0A49CE512756888100C4FE73 = {
 			isa = PBXGroup;
 			children = (
@@ -115,15 +151,16 @@
 		0A49CE5C2756888100C4FE73 /* ClientVK_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				0A375B5F276E89E400CBC3C3 /* ClientVK-SwiftUI-Info.plist */,
+				0A375B58276E877900CBC3C3 /* UIKIt */,
 				0A6C32562763E4B8005B9379 /* Services */,
 				0A6C32552763E4AB005B9379 /* Utils */,
 				0ADC930C275CBAC6001797C3 /* Flows */,
 				0ADC9303275CB988001797C3 /* Models */,
 				0A49CE742756A61A00C4FE73 /* ViewBuilders */,
 				0A49CE732756A60300C4FE73 /* ViewModifiers */,
-				0A49CE5D2756888100C4FE73 /* ClientVK_SwiftUIApp.swift */,
-				0A49CE612756888200C4FE73 /* Assets.xcassets */,
-				0A49CE632756888200C4FE73 /* Preview Content */,
+				0A375B60276E8C9300CBC3C3 /* Resources */,
+				0A375B61276E8CC800CBC3C3 /* Environments */,
 			);
 			path = ClientVK_SwiftUI;
 			sourceTree = "<group>";
@@ -181,7 +218,7 @@
 		0A6C325B2763E745005B9379 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				0A6C3273276402B8005B9379 /* ContentViewModel.swift */,
+				0A6C3273276402B8005B9379 /* LoginViewModel.swift */,
 				0A561A552764A1B500B4DE8E /* FriendsViewModel.swift */,
 				0A561A592764CEDB00B4DE8E /* UserPhotoViewModel.swift */,
 				0A561A5B2764D5BD00B4DE8E /* GroupsViewModel.swift */,
@@ -205,16 +242,16 @@
 		0ADC930C275CBAC6001797C3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				0A31C85D276E4C6800033A96 /* Coordinator */,
 				0A676B5F276A8619000A7ECD /* CustomViews */,
 				0A6C325B2763E745005B9379 /* ViewModels */,
 				0ADC930D275CBAE3001797C3 /* CellsView */,
-				0A49CE5F2756888100C4FE73 /* AuthView.swift */,
-				0ADC930E275CBB03001797C3 /* ContentView.swift */,
 				0ADC9310275CBD62001797C3 /* FriendsView.swift */,
 				0ADC9312275CBE93001797C3 /* GroupsView.swift */,
 				0ADC9316275CBFCA001797C3 /* NewsfeedView.swift */,
 				0ADC9318275CC12A001797C3 /* UserPhotosView.swift */,
 				0A6C32592763E515005B9379 /* VKLoginWebView.swift */,
+				0A31C860276E4EEA00033A96 /* MainTabBarView.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -316,16 +353,16 @@
 			files = (
 				0ADC9315275CBF52001797C3 /* UserPhotoCellView.swift in Sources */,
 				0A6C327227640234005B9379 /* Encode+Decode.swift in Sources */,
+				0A375B5A276E879400CBC3C3 /* SceneDelegate.swift in Sources */,
 				0A6C326A2763EE61005B9379 /* AlbumData.swift in Sources */,
 				0A6C32682763EE0A005B9379 /* PhotosData.swift in Sources */,
 				0A6C325A2763E515005B9379 /* VKLoginWebView.swift in Sources */,
-				0ADC930F275CBB03001797C3 /* ContentView.swift in Sources */,
 				0A561A562764A1B500B4DE8E /* FriendsViewModel.swift in Sources */,
+				0A375B5C276E87BE00CBC3C3 /* AppDelegate.swift in Sources */,
 				0A561A5C2764D5BD00B4DE8E /* GroupsViewModel.swift in Sources */,
-				0A49CE602756888100C4FE73 /* AuthView.swift in Sources */,
 				0A6C32622763EC0C005B9379 /* VKService.swift in Sources */,
 				0A49CE722756A55900C4FE73 /* UserCellView.swift in Sources */,
-				0A49CE5E2756888100C4FE73 /* ClientVK_SwiftUIApp.swift in Sources */,
+				0A31C85F276E4C9800033A96 /* MainCoordinator.swift in Sources */,
 				0A49CE762756A63D00C4FE73 /* ShadowViewModifier.swift in Sources */,
 				0ADC9317275CBFCA001797C3 /* NewsfeedView.swift in Sources */,
 				0A49CE6E2756A44100C4FE73 /* ImageViewBuilder.swift in Sources */,
@@ -337,7 +374,8 @@
 				0A676B61276A862B000A7ECD /* LikeButton.swift in Sources */,
 				0ADC930B275CBA32001797C3 /* SectionDataModel.swift in Sources */,
 				0A6C326C2763EEDC005B9379 /* KeychainUser.swift in Sources */,
-				0A6C3274276402B8005B9379 /* ContentViewModel.swift in Sources */,
+				0A6C3274276402B8005B9379 /* LoginViewModel.swift in Sources */,
+				0A31C861276E4EEA00033A96 /* MainTabBarView.swift in Sources */,
 				0A561A5A2764CEDB00B4DE8E /* UserPhotoViewModel.swift in Sources */,
 				0ADC9319275CC12A001797C3 /* UserPhotosView.swift in Sources */,
 				0ADC9313275CBE93001797C3 /* GroupsView.swift in Sources */,
@@ -471,11 +509,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ClientVK_SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ClientVK_SwiftUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = SN53JF86L5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "ClientVK-SwiftUI-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -500,11 +538,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ClientVK_SwiftUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ClientVK_SwiftUI/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = SN53JF86L5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "ClientVK-SwiftUI-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

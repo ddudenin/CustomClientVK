@@ -8,7 +8,7 @@
 import Foundation
 import SwiftKeychainWrapper
 
-class ContentViewModel: ObservableObject {
+class LoginViewModel: ObservableObject {
     
     @Published var isUserAuthorized: Bool = false
     private let timeToSecond: Double = 86400.0
