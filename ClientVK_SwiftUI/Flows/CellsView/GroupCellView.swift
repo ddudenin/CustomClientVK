@@ -10,12 +10,12 @@ import Kingfisher
 
 struct GroupCellView: View {
     
-    let group: RLMGroup
+    let group: GroupDisplayItem
     
     var body: some View {
         HStack {
             CellImage() {
-                KFImage(URL(string: group.imageUrl))
+                KFImage(URL(string: group.avatarURL))
                     .cancelOnDisappear(true)
                     .resizable()
             }
@@ -29,6 +29,6 @@ struct GroupCellView: View {
 
 struct GroupCellView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupCellView(group: RLMGroup())
+        GroupCellView(group: GroupDisplayItem(title: "Apple", avatarURL: ""))
     }
 }

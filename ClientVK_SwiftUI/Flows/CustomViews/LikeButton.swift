@@ -65,7 +65,7 @@ struct LikeButton : View {
         }
         .onTapGesture {
             self.isLiked.toggle()
-            withAnimation(.linear(duration: 0.2)) {
+            withAnimation(.linear(duration: 1)) {
                 self.scale = self.scale == 1 ? 1.3 : 1
                 self.opacity = 1 - self.opacity
             }

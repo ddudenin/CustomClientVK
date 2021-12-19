@@ -10,11 +10,11 @@ import Kingfisher
 
 struct UserCellView: View {
     
-    let user: RLMUser
+    let user: UserDisplayItem
     
     var body: some View {
         HStack {
-            CellImage(color: self.user.online == 1 ? Color.green : Color.black) {
+            CellImage(shadowColor: self.user.shadowColor) {
                 KFImage(URL(string: self.user.avatarURL))
                     .cancelOnDisappear(true)
                     .resizable()
@@ -22,7 +22,7 @@ struct UserCellView: View {
             
             VStack (alignment: .leading) {
                 Text(self.user.fullName)
-                Text(self.user.city?.title ?? "")
+                Text(self.user.cityName)
                     .font(.footnote)
                     .fontWeight(.thin)
             }
@@ -35,6 +35,6 @@ struct UserCellView: View {
 
 struct UserCellView_Previews: PreviewProvider {
     static var previews: some View {
-        UserCellView(user: RLMUser())
+        UserCellView(user: UserDisplayItem(fullName: "Tim Cook", avatarURL: "", cityName: "Cupertino", shadowColor: Color.green))
     }
 }

@@ -12,7 +12,9 @@ import RealmSwift
 
 class GroupsViewModel: ObservableObject {
   
-    var detachedGroups: [RLMGroup] { realmGroups?.map { $0.detached() } ?? [] }
+    var detachedGroups: [RLMGroup] {
+        return self.realmGroups?.map { $0.detached() } ?? []
+    }
    
     let realmService: AnyRealmService
     let vkService: AnyVKService
@@ -21,26 +23,27 @@ class GroupsViewModel: ObservableObject {
     let objectWillChange = ObjectWillChangePublisher()
     var error: Error?
     
-    private lazy var realmGroups: Results<RLMGroup>? = try? realmService.get(RLMGroup.self, configuration: .deleteIfMigration)
+    private lazy var realmGroups: Results<RLMGroup>? = try? realmService.get(RLMGroup.self,
+                                                                             configuration: .deleteIfMigration)
     
     init(realmService: AnyRealmService, vkService: AnyVKService) {
         self.realmService = realmService
         self.vkService = vkService
         
-        subscribeForDatabaseChanges()
+        self.subscribeForDatabaseChanges()
     }
     
     private func subscribeForDatabaseChanges() {
-        notificationToken = realmGroups?.observe { [weak self] _ in
+        self.notificationToken = self.realmGroups?.observe { [weak self] _ in
             self?.objectWillChange.send()
         }
     }
     
     func fetchGroups() {
-        vkService.getGroups { [weak self] items in
+        vkService.getGroups { [weak self] groups in
             guard let self = self else { return }
             
-            try? self.realmService.save(items: items,
+            try? self.realmService.save(items: groups,
                                         configuration: .deleteIfMigration,
                                         update: .modified)
         }

@@ -5,7 +5,7 @@
 //  Created by Дмитрий Дуденин on 10.12.2021.
 //
 
-import Foundation
+import SwiftUI
 import RealmSwift
 
 struct FriendsRequestData: Codable {
@@ -29,10 +29,6 @@ class RLMUser: Object, Codable, Identifiable {
         return firstName + " " + lastName
     }
     
-    var avatarURL: String {
-        return photo200Orig
-    }
-    
     override static func primaryKey() -> String? {
         return "id"
     }
@@ -45,4 +41,11 @@ class City: Object, Codable {
     override static func primaryKey() -> String? {
         return "id"
     }
+}
+
+struct UserDisplayItem {
+    let fullName: String
+    let avatarURL: String
+    let cityName: String
+    let shadowColor: Color
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabBarView: View {
-
+    
     var body: some View {
         TabView {
             FriendsView()
@@ -23,12 +23,6 @@ struct MainTabBarView: View {
                 .tabItem {
                     Image(systemName: "person.3")
                     Text("Группы")
-                }
-            
-            NewsfeedView()
-                .tabItem {
-                    Image(systemName: "newspaper")
-                    Text("Новости")
                 }
         }
         .navigationBarBackButtonHidden(true)

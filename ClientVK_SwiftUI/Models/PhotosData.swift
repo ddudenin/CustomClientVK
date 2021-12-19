@@ -29,10 +29,6 @@ class RLMPhoto: Object, Codable, Identifiable {
     @objc dynamic var likes: Likes?
     @objc dynamic var reposts: Reposts?
     
-    var url: String? {
-        return sizes.first { $0.type == "x" }?.url ?? sizes.last?.url
-    }
-    
     override static func primaryKey() -> String? {
         return "id"
     }
@@ -69,4 +65,10 @@ enum TypeEnum: String, Codable {
     case x = "x"
     case y = "y"
     case z = "z"
+}
+
+struct PhotoDisplayItem {
+    let photoURL: String
+    let likesCount: Int
+    let hasUserLike: Bool
 }

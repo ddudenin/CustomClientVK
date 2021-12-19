@@ -10,17 +10,13 @@ import Kingfisher
 
 struct UserPhotoCellView: View {
     
-    let photo: RLMPhoto
+    let photo: PhotoDisplayItem
     @State var isLiked: Bool
     
     private var likesCount: Int {
-        var likeCount = 0
+        var likeCount = self.photo.likesCount
         
-        if let likeInfo = photo.likes {
-            likeCount = likeInfo.count
-        }
-        
-        if isLiked {
+        if self.photo.hasUserLike {
             likeCount += 1
         }
         
@@ -29,12 +25,10 @@ struct UserPhotoCellView: View {
     
     var body: some View {
         VStack {
-            if let url = self.photo.url {
-                KFImage(URL(string: url))
-                    .cancelOnDisappear(true)
-                    .resizable()
-                    .frame(width: 90, height: 90)
-            }
+            KFImage(URL(string: self.photo.photoURL))
+                .cancelOnDisappear(true)
+                .resizable()
+                .frame(width: 90, height: 90)
             
             HStack {
                 LikeButton(isLiked: $isLiked)
@@ -48,6 +42,7 @@ struct UserPhotoCellView: View {
 
 struct UserPhotoCellView_Previews: PreviewProvider {
     static var previews: some View {
-        UserPhotoCellView(photo: RLMPhoto(), isLiked: false)
+        UserPhotoCellView(photo: PhotoDisplayItem(photoURL: "", likesCount: 0, hasUserLike: false),
+                          isLiked: false)
     }
 }

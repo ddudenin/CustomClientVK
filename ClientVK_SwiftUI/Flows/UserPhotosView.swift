@@ -16,8 +16,9 @@ struct UserPhotosView: View {
     let user: RLMUser
     
     var body: some View {
-        ASCollectionView(data: viewModel.photos) { photo, _ in
-            UserPhotoCellView(photo: photo, isLiked: photo.likes?.userLikes == 1)
+        ASCollectionView(data: self.viewModel.photos) { photo, _ in
+            let displayItem = PhotoDisplayItemFactory.make(for: photo)
+            UserPhotoCellView(photo: displayItem, isLiked: displayItem.hasUserLike)
         }
         .layout {
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -30,7 +31,7 @@ struct UserPhotosView: View {
             return layout
         }
         .onAppear {
-            viewModel.fetchPhotos(for: user)
+            self.viewModel.fetchPhotos(for: self.user)
         }
         .navigationTitle(self.user.fullName)
         .listStyle(.plain)

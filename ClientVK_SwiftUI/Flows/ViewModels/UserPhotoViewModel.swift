@@ -17,10 +17,10 @@ class UserPhotoViewModel: ObservableObject {
     }
     
     func fetchPhotos(for user: RLMUser) {
-        vkService.getPhotos(userId: user.id) { [weak self] items in
+        self.vkService.getPhotos(userId: user.id) { [weak self] photos in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.photos = items
+                self.photos = photos
             }
         }
     }

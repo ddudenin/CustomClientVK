@@ -5,15 +5,13 @@
 //  Created by Дмитрий Дуденин on 18.12.2021.
 //
 
-import Foundation
-
 import UIKit
 import SwiftUI
 import Combine
 
 protocol Coordinator {
     var navigationController: UINavigationController { get set }
-    func start ()
+    func start()
 }
 
 class MainCoordinator: Coordinator {
@@ -30,21 +28,17 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        loginViewModel.$isUserAuthorized
+        self.loginViewModel.$isUserAuthorized
             .subscribe(on: RunLoop.main)
             .sink { [weak self] isAuthorized in
                 guard let self = self else { return }
                 if !isAuthorized {
                     self.navigationController.popToRootViewController(animated: true)
                 } else {
-                    let mainTabBarView = self.createMainTabBarController()
+                    let mainTabBarView = UIHostingController(rootView: MainTabBarView())
                     self.navigationController.pushViewController(mainTabBarView, animated: true)
                 }
-            }.store(in: &cancellables)
-    }
-    
-    private func createMainTabBarController() -> UIViewController {
-        let mainTabBarView = MainTabBarView()
-        return UIHostingController(rootView: mainTabBarView)
+            }
+            .store(in: &cancellables)
     }
 }

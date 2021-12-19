@@ -22,15 +22,15 @@ class LoginViewModel: ObservableObject {
             let data = Data(keychainData.utf8)
             
             if let decodeUser = decode(json: data, as: KeychainUser.self) {
-             
+                
                 let now = Date().timeIntervalSince1970
-                let isValidDate = (now - decodeUser.date) < timeToSecond
+                let isValidDate = (now - decodeUser.date) < self.timeToSecond
                 
                 if isValidDate {
                     UserDefaults.standard.set(decodeUser.token, forKey: "vkToken")
                     UserDefaults.standard.set(decodeUser.id, forKey: "userId")
                     
-                    isUserAuthorized = true
+                    self.isUserAuthorized = true
                 }
             }
         }
