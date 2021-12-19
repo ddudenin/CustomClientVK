@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct GroupCellView: View {
+    
+    let group: Group
+    
     var body: some View {
         HStack {
-            CellImage {
-                Image("photo")
+            CellImage() {
+                Image(self.group.avatar ?? "photo")
             }
-
-            Text("group name")
+            
+            Text(group.name)
             
             Spacer()
         }
@@ -23,6 +26,6 @@ struct GroupCellView: View {
 
 struct GroupCellView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupCellView()
+        GroupCellView(group: testGroup)
     }
 }
