@@ -11,6 +11,21 @@ import Kingfisher
 struct UserPhotoCellView: View {
     
     let photo: RLMPhoto
+    @State var isLiked: Bool
+    
+    private var likesCount: Int {
+        var likeCount = 0
+        
+        if let likeInfo = photo.likes {
+            likeCount = likeInfo.count
+        }
+        
+        if isLiked {
+            likeCount += 1
+        }
+        
+        return likeCount
+    }
     
     var body: some View {
         VStack {
@@ -22,11 +37,8 @@ struct UserPhotoCellView: View {
             }
             
             HStack {
-                Button(action: { print("press button") }) {
-                    Image(systemName: self.photo.likes?.userLikes == 1 ? "heart.fill" : "heart")
-                }
-                
-                Text("\(self.photo.likes?.count ?? 0)")
+                LikeButton(isLiked: $isLiked)
+                Text("\(likesCount)")
             }
             .lineLimit(1)
         }
@@ -36,6 +48,6 @@ struct UserPhotoCellView: View {
 
 struct UserPhotoCellView_Previews: PreviewProvider {
     static var previews: some View {
-        UserPhotoCellView(photo: RLMPhoto())
+        UserPhotoCellView(photo: RLMPhoto(), isLiked: false)
     }
 }

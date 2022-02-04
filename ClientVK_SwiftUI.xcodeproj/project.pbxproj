@@ -19,6 +19,7 @@
 		0A561A562764A1B500B4DE8E /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A561A552764A1B500B4DE8E /* FriendsViewModel.swift */; };
 		0A561A5A2764CEDB00B4DE8E /* UserPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A561A592764CEDB00B4DE8E /* UserPhotoViewModel.swift */; };
 		0A561A5C2764D5BD00B4DE8E /* GroupsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A561A5B2764D5BD00B4DE8E /* GroupsViewModel.swift */; };
+		0A676B61276A862B000A7ECD /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A676B60276A862B000A7ECD /* LikeButton.swift */; };
 		0A6C32512763E479005B9379 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0A6C32502763E479005B9379 /* Realm */; };
 		0A6C32532763E479005B9379 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A6C32522763E479005B9379 /* RealmSwift */; };
 		0A6C32582763E4C7005B9379 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C32572763E4C7005B9379 /* RealmService.swift */; };
@@ -58,6 +59,7 @@
 		0A561A552764A1B500B4DE8E /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		0A561A592764CEDB00B4DE8E /* UserPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhotoViewModel.swift; sourceTree = "<group>"; };
 		0A561A5B2764D5BD00B4DE8E /* GroupsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewModel.swift; sourceTree = "<group>"; };
+		0A676B60276A862B000A7ECD /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		0A6C32572763E4C7005B9379 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		0A6C32592763E515005B9379 /* VKLoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginWebView.swift; sourceTree = "<group>"; };
 		0A6C32612763EC0C005B9379 /* VKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKService.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 			path = ViewBuilders;
 			sourceTree = "<group>";
 		};
+		0A676B5F276A8619000A7ECD /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0A676B60276A862B000A7ECD /* LikeButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		0A6C32552763E4AB005B9379 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		0ADC930C275CBAC6001797C3 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				0A676B5F276A8619000A7ECD /* CustomViews */,
 				0A6C325B2763E745005B9379 /* ViewModels */,
 				0ADC930D275CBAE3001797C3 /* CellsView */,
 				0A49CE5F2756888100C4FE73 /* AuthView.swift */,
@@ -323,6 +334,7 @@
 				0A6C32642763ED0E005B9379 /* UserData.swift in Sources */,
 				0A6C32662763EDCF005B9379 /* GroupData.swift in Sources */,
 				0A6C32582763E4C7005B9379 /* RealmService.swift in Sources */,
+				0A676B61276A862B000A7ECD /* LikeButton.swift in Sources */,
 				0ADC930B275CBA32001797C3 /* SectionDataModel.swift in Sources */,
 				0A6C326C2763EEDC005B9379 /* KeychainUser.swift in Sources */,
 				0A6C3274276402B8005B9379 /* ContentViewModel.swift in Sources */,
