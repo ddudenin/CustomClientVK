@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CellImage: View {
-    var content: Image
+    var content: KFImage
     var shadowColor: Color
     
-    init(color: Color = .black, @ViewBuilder content: () -> Image) {
+    init(color: Color = .black, @ViewBuilder content: () -> KFImage) {
         self.shadowColor = color
         self.content = content()
     }

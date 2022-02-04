@@ -6,20 +6,23 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct UserCellView: View {
     
-    let user: User
+    let user: RLMUser
     
     var body: some View {
         HStack {
-            CellImage(color: self.user.isOnline ? Color.green : Color.black) {
-                Image(self.user.avatar ?? "person.fill")
+            CellImage(color: self.user.online == 1 ? Color.green : Color.black) {
+                KFImage(URL(string: self.user.avatarURL))
+                    .cancelOnDisappear(true)
+                    .resizable()
             }
             
             VStack (alignment: .leading) {
                 Text(self.user.fullName)
-                Text(self.user.city ?? "")
+                Text(self.user.city?.title ?? "")
                     .font(.footnote)
                     .fontWeight(.thin)
             }
@@ -32,6 +35,6 @@ struct UserCellView: View {
 
 struct UserCellView_Previews: PreviewProvider {
     static var previews: some View {
-        UserCellView(user: testUser)
+        UserCellView(user: RLMUser())
     }
 }

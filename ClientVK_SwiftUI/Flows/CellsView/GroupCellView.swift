@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct GroupCellView: View {
     
-    let group: Group
+    let group: RLMGroup
     
     var body: some View {
         HStack {
             CellImage() {
-                Image(self.group.avatar ?? "photo")
+                KFImage(URL(string: group.imageUrl))
+                    .cancelOnDisappear(true)
+                    .resizable()
             }
             
-            Text(group.name)
+            Text(group.title)
             
             Spacer()
         }
@@ -26,6 +29,6 @@ struct GroupCellView: View {
 
 struct GroupCellView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupCellView(group: testGroup)
+        GroupCellView(group: RLMGroup())
     }
 }
