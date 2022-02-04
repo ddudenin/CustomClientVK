@@ -17,8 +17,8 @@ struct CellImage: View {
     var content: KFImage
     var shadowColor: Color
     
-    init(color: Color = .black, @ViewBuilder content: () -> KFImage) {
-        self.shadowColor = color
+    init(shadowColor: Color = .black, @ViewBuilder content: () -> KFImage) {
+        self.shadowColor = shadowColor
         self.content = content()
     }
     

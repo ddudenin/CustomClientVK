@@ -12,11 +12,11 @@ struct GroupsView: View {
     @ObservedObject var viewModel = GroupsViewModel(realmService: RealmService(), vkService: VKService())
     
     var body: some View {
-        List(viewModel.detachedGroups) { group in
-            GroupCellView(group: group)
+        List(self.viewModel.detachedGroups) { group in
+            GroupCellView(group: GroupDisplayItemFactory.make(for: group))
         }
         .onAppear {
-            viewModel.fetchGroups()
+            self.viewModel.fetchGroups()
         }
         .navigationTitle("Группы")
         .listStyle(.plain)

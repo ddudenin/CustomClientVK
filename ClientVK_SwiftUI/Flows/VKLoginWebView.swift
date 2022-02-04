@@ -46,14 +46,14 @@ struct VKLoginWebView: UIViewRepresentable {
 }
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
-
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
               url.path == "/blank.html",
               let fragment = url.fragment else {
-            decisionHandler(.allow)
-            return
-        }
+                  decisionHandler(.allow)
+                  return
+              }
         
         let params = fragment
             .components(separatedBy: "&")

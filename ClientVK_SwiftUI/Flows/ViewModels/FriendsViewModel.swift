@@ -10,7 +10,9 @@ import RealmSwift
 
 class FriendsViewModel: ObservableObject {
     
-    var detachedFriends: [RLMUser] { realmFriends?.map { $0.detached() } ?? [] }
+    var detachedFriends: [RLMUser] {
+        return self.realmFriends?.map { $0.detached() } ?? []
+    }
     
     let realmService: AnyRealmService
     let vkService: AnyVKService
@@ -26,20 +28,20 @@ class FriendsViewModel: ObservableObject {
         self.realmService = realmService
         self.vkService = vkService
         
-        subscribeForDatabaseChanges()
+        self.subscribeForDatabaseChanges()
     }
     
     private func subscribeForDatabaseChanges() {
-        notificationToken = realmFriends?.observe { [weak self] _ in
+        self.notificationToken = self.realmFriends?.observe { [weak self] _ in
             self?.objectWillChange.send()
         }
     }
     
     func fetchFriends() {
-        vkService.getFriends() { [weak self] items in
+        self.vkService.getFriends() { [weak self] users in
             guard let self = self else { return }
             
-            try? self.realmService.save(items: items,
+            try? self.realmService.save(items: users,
                                         configuration: .deleteIfMigration,
                                         update: .modified)
         }

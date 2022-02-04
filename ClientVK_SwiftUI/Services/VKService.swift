@@ -14,13 +14,13 @@ protocol AnyVKService {
 }
 
 class VKService: AnyVKService {
-
+    
     lazy var decoder: JSONDecoder = {
         var decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }()
-
+    
     private var token: String {
         UserDefaults.standard.string(forKey: "vkToken") ?? ""
     }

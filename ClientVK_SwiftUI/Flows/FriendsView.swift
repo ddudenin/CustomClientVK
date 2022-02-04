@@ -13,21 +13,21 @@ struct FriendsView: View {
     
     var body: some View {
         NavigationView {
-            if let error = viewModel.error {
+            if let error = self.viewModel.error {
                 Text(error.localizedDescription)
             } else {
-                List(prepareSectionsData(), rowContent: { section in
+                List(self.prepareSectionsData(), rowContent: { section in
                     Section(header: Text("\(section.letter)")) {
                         ForEach(getUsersArray(section: section.letter)) { user in
                             NavigationLink(destination: UserPhotosView(user: user)) {
-                                UserCellView(user: user)
+                                UserCellView(user: UserDisplayItemFactory.make(for: user))
                             }
                         }
                     }
                 })
                     .listStyle(.plain)
                     .onAppear {
-                        viewModel.fetchFriends()
+                        self.viewModel.fetchFriends()
                     }
                     .navigationTitle("Друзья")
             }
@@ -53,7 +53,7 @@ struct FriendsView: View {
     private func getUsersArray(section letter: String) -> [RLMUser] {
         var resultArray = [RLMUser]()
         
-        for user in viewModel.detachedFriends where String(user.lastName.prefix(1)) == letter {
+        for user in self.viewModel.detachedFriends where String(user.lastName.prefix(1)) == letter {
             resultArray.append(user)
         }
         

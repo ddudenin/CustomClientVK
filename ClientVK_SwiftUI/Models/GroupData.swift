@@ -33,7 +33,9 @@ class RLMGroup: Object, Codable, Identifiable {
     override static func primaryKey() -> String? {
         return "id"
     }
-    
-    var title: String { return name }
-    var imageUrl: String { return photo200 }
+}
+
+struct GroupDisplayItem {
+    let title: String
+    let avatarURL: String
 }

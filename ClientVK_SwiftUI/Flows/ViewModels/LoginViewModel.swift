@@ -8,7 +8,7 @@
 import Foundation
 import SwiftKeychainWrapper
 
-class ContentViewModel: ObservableObject {
+class LoginViewModel: ObservableObject {
     
     @Published var isUserAuthorized: Bool = false
     private let timeToSecond: Double = 86400.0
@@ -22,15 +22,15 @@ class ContentViewModel: ObservableObject {
             let data = Data(keychainData.utf8)
             
             if let decodeUser = decode(json: data, as: KeychainUser.self) {
-             
+                
                 let now = Date().timeIntervalSince1970
-                let isValidDate = (now - decodeUser.date) < timeToSecond
+                let isValidDate = (now - decodeUser.date) < self.timeToSecond
                 
                 if isValidDate {
                     UserDefaults.standard.set(decodeUser.token, forKey: "vkToken")
                     UserDefaults.standard.set(decodeUser.id, forKey: "userId")
                     
-                    isUserAuthorized = true
+                    self.isUserAuthorized = true
                 }
             }
         }
