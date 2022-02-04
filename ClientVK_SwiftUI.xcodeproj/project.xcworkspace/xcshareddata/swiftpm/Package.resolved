@@ -47,6 +47,15 @@
         }
       },
       {
+        "package": "CodingStyleSPM",
+        "repositoryURL": "https://github.com/ddudenin/SwiftCodeStyle",
+        "state": {
+          "branch": "main",
+          "revision": "3e563fedb0ab723ef3f5721f44811c936f44b2e5",
+          "version": null
+        }
+      },
+      {
         "package": "SwiftKeychainWrapper",
         "repositoryURL": "https://github.com/jrendel/SwiftKeychainWrapper",
         "state": {

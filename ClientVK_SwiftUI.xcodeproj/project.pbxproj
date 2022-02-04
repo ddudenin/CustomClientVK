@@ -41,6 +41,7 @@
 		0ADC9317275CBFCA001797C3 /* NewsfeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC9316275CBFCA001797C3 /* NewsfeedView.swift */; };
 		0ADC9319275CC12A001797C3 /* UserPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC9318275CC12A001797C3 /* UserPhotosView.swift */; };
 		0ADC931C275CC3A9001797C3 /* ASCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 0ADC931B275CC3A9001797C3 /* ASCollectionView */; };
+		0AE1430E2767E78F0089F49B /* CodingStyleSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 0AE1430D2767E78F0089F49B /* CodingStyleSPM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 				0A6C32602763EAE6005B9379 /* Kingfisher in Frameworks */,
 				0A6C32532763E479005B9379 /* RealmSwift in Frameworks */,
 				0A6C3270276401DB005B9379 /* SwiftKeychainWrapper in Frameworks */,
+				0AE1430E2767E78F0089F49B /* CodingStyleSPM in Frameworks */,
 				0A6C32512763E479005B9379 /* Realm in Frameworks */,
 				0ADC931C275CC3A9001797C3 /* ASCollectionView in Frameworks */,
 			);
@@ -238,6 +240,7 @@
 				0A6C32522763E479005B9379 /* RealmSwift */,
 				0A6C325F2763EAE6005B9379 /* Kingfisher */,
 				0A6C326F276401DB005B9379 /* SwiftKeychainWrapper */,
+				0AE1430D2767E78F0089F49B /* CodingStyleSPM */,
 			);
 			productName = ClientVK_SwiftUI;
 			productReference = 0A49CE5A2756888100C4FE73 /* ClientVK_SwiftUI.app */;
@@ -272,6 +275,7 @@
 				0A6C324F2763E479005B9379 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				0A6C325E2763EAE6005B9379 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				0A6C326E276401DB005B9379 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				0AE1430C2767E78F0089F49B /* XCRemoteSwiftPackageReference "SwiftCodeStyle" */,
 			);
 			productRefGroup = 0A49CE5B2756888100C4FE73 /* Products */;
 			projectDirPath = "";
@@ -562,6 +566,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		0AE1430C2767E78F0089F49B /* XCRemoteSwiftPackageReference "SwiftCodeStyle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ddudenin/SwiftCodeStyle";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -589,6 +601,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0ADC931A275CC3A9001797C3 /* XCRemoteSwiftPackageReference "ASCollectionView" */;
 			productName = ASCollectionView;
+		};
+		0AE1430D2767E78F0089F49B /* CodingStyleSPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AE1430C2767E78F0089F49B /* XCRemoteSwiftPackageReference "SwiftCodeStyle" */;
+			productName = CodingStyleSPM;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
